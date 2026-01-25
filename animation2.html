@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+    <style>
+        @keyframes spin {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(20px);
+            }
+        }
+
+        .girl img {
+            width: 130px;
+            height: auto;
+            float: left;
+            margin: right;
+            opacity: 1;
+            transition: all 0.5s ease-in-out;
+        }
+        .fade-out {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .girl:hover {
+            position:absolute;
+            width: 130px;
+            height:auto;
+            left: 0;
+            top: 0;
+            animation: spin 1s infinite;
+        }
+
+        .container {
+            line-height: 1.5;
+            text-align: right;
+            justify-content: flex-start;
+            top: 0;
+            color:#FFB6C1 ;
+            font-family: "Parisienne", cursive;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 24px;
+            margin-left: 150px;
+        }
+
+        .head {
+            top: 0;
+            color:#FFB6C1 ;
+            font-family: "Parisienne", cursive;
+            font-weight: bolder;
+            font-style: normal;
+            font-size: 26px;
+            text-align: center;
+            margin-left: 150px;
+        }
+        
+    </style>
+    
+   
+
+</head>
+<body>
+    <div class="girl">
+        <img id="clickImage" src="C:\Users\H\Dropbox\PC\Downloads\b5b1b201-ad0c-4942-b9f1-35a8e84ac654.jpg"/>
+    </div>
+
+    <script>
+        window.onload = function () {
+            let imageElement = document.getElementById("clickImage");
+            let headingElement = document.getElementById("heading");
+            let textElement = document.getElementById("textContainer");
+            let images = ["Downloads/b5b1b201-ad0c-4942-b9f1-35a8e84ac654.jpg", "Downloads/de5764b3-8d07-4542-a928-b89733517637.jpg", "Downloads/7c65102e-7105-4306-b6c6-9063e798ba69.jpg", "Downloads/f5fc2977-245a-4951-b676-19fe6175bd5f.jpg", "Downloads/download (4).jpg"];
+            let styles = ["#FFB6C1", "#89e894", "#87CEEB", "#DDA0DD", "#deb887"];
+            let index = 0;
+
+            imageElement.onclick = function () {
+                imageElement.classList.add("fade-out") 
+                setTimeout(() => {
+                    index = (index + 1) % images.length;
+                    imageElement.src = images[index];
+
+                
+                    textElement.style.color = styles[index];
+                    headingElement.style.color = styles[index];
+
+
+                    imageElement.classList.remove("fade-out");
+                }, 500);  
+            };
+        };
+        
+    </script>    
+    
+    <h1 id="heading" class="head">A Glimpse of Me</h1>
+   
+
+    <div id="textContainer" class="container">
+       
+        <p>I am someone who thrives on intellectual growth, precision in language, and the pursuit of knowledge. My academic journey revolves around software engineering, where I continuously refine my programming skills, particularly in Python, Java, and web development frameworks like Flask and SQLite. Debugging and structuring databases excite me, as they challenge my problem-solving abilities and push me to develop efficient solutions. Yet, my aspirations extend beyond software—I see myself studying law in the U.S., exploring the complexities of argumentation and justice. My fascination with structured methodologies like Agile and Scrum aligns with my analytical mindset, allowing me to approach both software and legal studies with a methodical, thoughtful approach.</p>
+
+        <p>Beyond my technical pursuits, I immerse myself in philosophy, historical discourse, and the intricacies of communication. I enjoy refining my vocabulary, ensuring that my language conveys precision, intelligence, and impact. I delve into philosophical frameworks such as utilitarianism and consequentialism, exploring how ethical principles shape decision-making. History captivates me, particularly Ethiopia's role in global events, colonial resistance, and the strategies of leaders like Haile Selassie. I question how public figures use research and rhetoric to shape perceptions, continuously expanding my understanding of influence and discourse. My intellectual curiosity drives me to read deeply and analyze perspectives that others might overlook.</p>
+
+        <p>In addition to my academic and philosophical interests, I find joy in structured problem-solving and exploration. Whether investigating signal strength calculations, enhancing my knowledge of GitHub workflows, or developing a dynamic flashcard app, I seek challenges that push me to improve. My persistence in debugging reflects my broader mindset—I embrace obstacles as opportunities to refine my thinking. Even as I look toward my long-term goals of studying law and mastering impactful communication, I remain grounded in my present pursuits. Every challenge, every new concept, and every refined piece of knowledge adds to my journey, shaping the thoughtful, ambitious person I am becoming.</p>
+    </div>
+</body>
